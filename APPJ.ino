@@ -2,10 +2,12 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+//IMPORTANT
 // OLED display size
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 32
 
+//OPTIONAL
 // you can ignore this if you plan on using a default ring
 #define NOTE_B0  31
 #define NOTE_C1  33
@@ -98,10 +100,12 @@
 #define NOTE_DS8 4978
 #define REST      0
 
+//IMPORTANT
 // OLED reset pin
 #define OLED_RESET -1
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
+//IMPORTANT
 // Pin definitions
 const int startButtonPin = A0;    // Start button
 const int incButtonPin = A1;      // Increase value button
@@ -127,6 +131,7 @@ int notes = sizeof(melody) / sizeof(melody[0]) / 2;
 int wholenote = (60000 * 4) / tempo;
 int divider = 0, noteDuration = 0;
 
+//IMPORTANT
 // Function to initialize the OLED display
 void setup() {
   pinMode(startButtonPin, INPUT_PULLUP);
@@ -151,6 +156,7 @@ void setup() {
   display.display();
 }
 
+//IMPORTANT
 // Function to draw the time on the OLED display
 void displayTime() {
   display.clearDisplay();
@@ -176,6 +182,7 @@ void displayTime() {
   display.display();
 }
 
+//IMPORTANT
 // Function to handle the button inputs and the timer logic
 void loop() {
   if (digitalRead(startButtonPin) == LOW) {
@@ -236,6 +243,8 @@ void loop() {
 
   displayTime();
 }
+
+//OPTIONAL
 void song(){ // This is customizable, you can look for more custom songs on https://github.com/robsoncouto/arduino-songs
   for (int thisNote = 0; thisNote < notes * 2; thisNote = thisNote + 2) {
 
